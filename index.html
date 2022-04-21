@@ -8,17 +8,15 @@
   </head>
   <body>
     <button onclick="onConsentAccepted()">Update consent status</button>
-    <button onclick="showExtractedData()">Show extracted data</button>
   </body>
   <script>
     var extractedData = "";
 
     function onConsentAccepted() {
-      UpdateConsentStatus.postMessage("CONSENT_ACCEPTED");
-    }
-
-    function showExtractedData() {
-      alert(extractedData);
+      window.flutter_inappwebview.callHandler(
+        "consentAcceptanceStatus",
+        "CONSENT_ACCEPTED"
+      );
     }
   </script>
 </html>
